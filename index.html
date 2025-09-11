@@ -174,6 +174,50 @@
             position: relative;
         }
 
+        .contact-form select {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F39C12' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 10px 7px;
+    cursor: pointer;
+}
+
+.contact-form select:focus {
+    outline: none;
+    border-color: var(--yellow);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Estilizando as opções */
+.contact-form select option {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px;
+}
+
+/* Para navegadores que suportam */
+.contact-form select option:hover,
+.contact-form select option:focus {
+    background-color: var(--yellow);
+    color: var(--dark-blue);
+}
+
+
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -1963,28 +2007,70 @@
         </div>
     </section>
 
-    <section class="contact-cta" id="contato">
-        <div class="container">
-            <h2 class="section-title reveal">Fale Conosco</h2>
-            <p class="section-subtitle reveal">Preencha o formulário ou fale direto com a gente para começar seu projeto hoje mesmo!</p>
-            <div class="contact-content">
-                <form class="contact-form reveal" id="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu E-mail" required>
-                    <input type="tel" placeholder="Seu WhatsApp (com DDD)" required>
-                    <textarea placeholder="Fale um pouco sobre o seu negócio" rows="5" required></textarea>
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i>
-                        Enviar Orçamento
-                    </button>
-                </form>
-                <a href="https://wa.me/5519999999999?text=Olá! Tenho interesse em criar um site para meu MEI. Pode me ajudar?" class="whatsapp-btn reveal">
-                    <i class="fab fa-whatsapp"></i> 
-                    Falar Direto no WhatsApp
-                </a>
-            </div>
+<section class="contact-cta" id="contato">
+    <div class="container">
+        <h2 class="section-title reveal">Fale Conosco</h2>
+        <p class="section-subtitle reveal">Preencha o formulário ou fale direto com a gente para começar seu projeto hoje mesmo!</p>
+        <div class="contact-content">
+            <form class="contact-form reveal" id="contact-form" onsubmit="generateWhatsAppLink(event)">
+                <input type="text" id="name" placeholder="Seu Nome" required>
+                <input type="email" id="email" placeholder="Seu E-mail" required>
+                <input type="tel" id="phone" placeholder="Seu WhatsApp (com DDD)" required>
+                
+                <select id="plan" required>
+                    <option value="" disabled selected>Selecione um plano</option>
+                    <option value="Plano Essencial">Plano Essencial</option>
+                    <option value="Plano Completo">Plano Completo</option>
+                </select>
+
+                <textarea id="message" placeholder="Fale um pouco sobre o seu negócio" rows="5" required></textarea>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Orçamento
+                </button>
+            </form>
+            <a href="#" class="whatsapp-btn reveal" id="whatsapp-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> 
+                Falar Direto no WhatsApp
+            </a>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+function generateWhatsAppLink(event) {
+    event.preventDefault();
+    
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+    const plan = encodeURIComponent(document.getElementById('plan').value);
+    const message = encodeURIComponent(document.getElementById('message').value.trim());
+    
+    const whatsappMessage = 
+        `Olá, vim do site da ClickSpark e quero mais informações.%0A%0A` +
+        `Nome: ${name}%0A` +
+        `E-mail: ${email}%0A` +
+        `WhatsApp: ${phone}%0A` +
+        `Plano Escolhido: ${plan}%0A%0A` +
+        `Mensagem:%0A${message}`;
+    
+    const whatsappNumber = '5519983824281'; // Substitua pelo seu número
+    
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    
+    const whatsappLinkElement = document.getElementById('whatsapp-link');
+    if (whatsappLinkElement) {
+        whatsappLinkElement.href = whatsappLink;
+    }
+    
+    window.open(whatsappLink, '_blank');
+}
+</script>
+
+
+
+
 
 <footer>
     <div class="container">
