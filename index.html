@@ -964,12 +964,14 @@
             margin-bottom: 20px;
             font-weight: 700;
             font-size: 1.4em;
+            text-align: center;
         }
 
         .process-step p {
             color: var(--light-grey);
             font-size: 1em;
             line-height: 1.6;
+            text-align: center;
         }
 
         /* Enhanced Testimonials - Updated to dark theme */
@@ -1756,6 +1758,210 @@
             transform: translateZ(0);
             transition: transform 0.1s ease-out;
         }
+        
+        /* Portfolio Section - CORRIGIDA */
+        .portfolio {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 100%);
+            position: relative;
+            padding: 80px 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(243, 156, 18, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .portfolio .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--yellow);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 0.1;
+        }
+
+        .portfolio-mockup {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-heavy);
+            transform: rotateY(-10deg) rotateX(5deg);
+            animation: mockupFloat 6s ease-in-out infinite;
+            margin-bottom: 30px;
+            max-width: 800px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .portfolio-mockup .mockup-content {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 0 0 15px 15px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-mockup .mockup-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item p {
+            color: var(--light-grey);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .portfolio-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        /* Responsividade para Portfolio */
+        @media (max-width: 1024px) {
+            .portfolio-mockup {
+                max-width: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio {
+                padding: 60px 0;
+            }
+            
+            .portfolio-mockup {
+                max-width: 100%;
+                transform: none;
+                padding: 10px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 60px;
+            }
+            
+            .portfolio-item {
+                padding: 30px 20px;
+            }
+            
+            .portfolio-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .portfolio-buttons .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio {
+                padding: 40px 0;
+            }
+            
+            .portfolio-mockup {
+                padding: 8px;
+            }
+            
+            .portfolio-item {
+                padding: 20px 15px;
+            }
+            
+            .portfolio-item h3 {
+                font-size: 1.5em;
+            }
+            
+            .portfolio-item p {
+                font-size: 1em;
+            }
+            
+            .portfolio-buttons .cta-btn {
+                padding: 12px 24px;
+                font-size: 0.85em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1798,7 +2004,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Seu MEI Online: <br>Sites que <span class="highlight">Vendem</span></h1>
-                    <p>Criação de sites e landing pages profissionais, otimizadas para MEIs, com design que converte e preços que cabem no seu bolso.</p>
+                    <p>Criação de sites e landing pages profissionais, otimizadas para MEIs, with design that converts e preços que cabem no seu bolso.</p>
                     <div class="hero-buttons">
                         <a href="#contato" class="cta-btn">
                             <i class="fas fa-rocket"></i>
@@ -1895,7 +2101,7 @@
                     <h3>Plano Essencial</h3>
                     <p>O básico que vende. Ideal para quem está começando e quer marcar presença online.</p>
                     <ul>
-                        <li><i class="fa-solid fa-check-circle"></i> Design moderno e responsivo</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Design moderno and responsivo</li>
                         <li><i class="fa-solid fa-check-circle"></i> Domínio .com.br incluso</li>
                         <li><i class="fa-solid fa-check-circle"></i> Hospedagem e Certificado SSL</li>
                         <li><i class="fa-solid fa-check-circle"></i> Formulário de Contato</li>
@@ -1929,195 +2135,43 @@
                         Contratar
                     </a>
                 </div>
-                
+            </div>
+        </div>
     </section>
 
-<section class="portfolio" id="portfolio">
-    <div class="container">
-        <h2 class="section-title reveal">Nossos Projetos</h2>
-        <p class="section-subtitle reveal">Veja exemplos reais de sites que desenvolvemos para ajudar negócios como o seu a crescerem online.</p>
-        <div class="portfolio-grid">
-            <div class="portfolio-item reveal">
-                <div class="portfolio-mockup">
-                    <div class="browser-bar">
-                        <div class="browser-dot dot-red"></div>
-                        <div class="browser-dot dot-yellow"></div>
-                        <div class="browser-dot dot-green"></div>
-                        <span style="margin-left: 20px; color: #999; font-size: 0.9em;">bellapizzabr.vercel.app</span>
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title reveal">Nossos Projetos</h2>
+            <p class="section-subtitle reveal">Veja exemplos reais de sites que desenvolvemos para ajudar negócios como o seu a crescerem online.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal">
+                    <div class="portfolio-mockup">
+                        <div class="browser-bar">
+                            <div class="browser-dot dot-red"></div>
+                            <div class="browser-dot dot-yellow"></div>
+                            <div class="browser-dot dot-green"></div>
+                            <span style="margin-left: 20px; color: #999; font-size: 0.9em;">bellapizzabr.vercel.app</span>
+                        </div>
+                        <div class="mockup-content">
+                            <img src="bellapizza.png" alt="Bella Pizza Website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
                     </div>
-                    <div class="mockup-content">
-                        <img src="bellapizza.png" alt="Bella Pizza Website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    <h3>Bella Pizza</h3>
+                    <p>Site desenvolvido para a Bella Pizza, uma pizzaria artesanal em São Paulo. Inclui design moderno, responsivo, filtro de menu interativo e integração com WhatsApp para pedidos rápidos. Transformamos a presença online da Bella Pizza, aumentando os contatos e pedidos.</p>
+                    <div class="portfolio-buttons">
+                        <a href="https://bellapizzabr.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                            <i class="fas fa-eye"></i>
+                            Ver Site
+                        </a>
+                        <a href="#contato" class="cta-btn">
+                            <i class="fas fa-rocket"></i>
+                            Quero um Igual!
+                        </a>
                     </div>
-                </div>
-                <h3>Bella Pizza</h3>
-                <p>Site desenvolvido para a Bella Pizza, uma pizzaria artesanal em São Paulo. Inclui design moderno, responsivo, filtro de menu interativo e integração com WhatsApp para pedidos rápidos. Transformamos a presença online da Bella Pizza, aumentando os contatos e pedidos.</p>
-                <div class="portfolio-buttons">
-                    <a href="https://bellapizzabr.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn">
-                        <i class="fas fa-eye"></i>
-                        Ver Site
-                    </a>
-                    <a href="#contato" class="cta-btn">
-                        <i class="fas fa-rocket"></i>
-                        Quero um Igual!
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<style>
-.portfolio {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 100%);
-    position: relative;
-    padding: 80px 0;
-}
-
-.portfolio::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(243, 156, 18, 0.1) 0%, transparent 50%);
-    z-index: 1;
-}
-
-.portfolio .container {
-    position: relative;
-    z-index: 2;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-top: 80px;
-}
-
-.portfolio-item {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    padding: 40px;
-    text-align: center;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-heavy);
-    border-color: var(--yellow);
-}
-
-.portfolio-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-gold);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-.portfolio-item:hover::before {
-    opacity: 0.1;
-}
-
-.portfolio-mockup {
-    background: var(--white);
-    padding: 15px; /* Reduzido para minimizar bordas */
-    border-radius: 15px;
-    box-shadow: var(--shadow-heavy);
-    transform: rotateY(-10deg) rotateX(5deg); /* Transformação mais suave */
-    animation: mockupFloat 6s ease-in-out infinite;
-    margin-bottom: 30px;
-    max-width: 600px; /* Limita a largura máxima */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.portfolio-mockup .mockup-content {
-    aspect-ratio: 1107 / 737; /* Proporção exata da imagem */
-    overflow: hidden;
-    border-radius: 0 0 15px 15px;
-    background: linear-gradient(135deg, var(--dark-blue), var(--accent-blue)); /* Fundo para caso a imagem não carregue */
-}
-
-.portfolio-mockup .mockup-content img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 0 0 15px 15px;
-}
-
-.portfolio-item h3 {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--white);
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 20px;
-}
-
-.portfolio-item p {
-    color: var(--light-grey);
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.portfolio-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .portfolio-mockup {
-        max-width: 400px;
-        transform: none; /* Remove rotação 3D em telas menores */
-        padding: 10px;
-    }
-
-    .portfolio-mockup .mockup-content {
-        aspect-ratio: 1107 / 737;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .portfolio-mockup {
-        max-width: 300px;
-        padding: 8px;
-    }
-
-    .portfolio-mockup .mockup-content {
-        aspect-ratio: 1107 / 737;
-    }
-
-    .portfolio-item {
-        padding: 20px;
-    }
-}
-</style>
+    </section>
 
     <section class="testimonials">
         <div class="container">
@@ -2136,7 +2190,7 @@
                         <div class="role">Consultor Financeiro</div>
                     </div>
                     <div class="testimonial-card">
-                        <blockquote>"Graças ao site, consegui mais visibilidade e fechei meu maior contrato até agora. É um investimento que se paga em pouquíssimo tempo. Fiquei muito satisfeito!"</blockquote>
+                        <blockquote>"Graças ao site, consegui mais visibilidade e fechei meu maior contrato até agora. É um investimento que se paga in pouquíssimo tempo. Fiquei muito satisfeito!"</blockquote>
                         <div class="author">Ana L.</div>
                         <div class="role">Designer Gráfica</div>
                     </div>
@@ -2195,101 +2249,70 @@
         </div>
     </section>
 
-<section class="contact-cta" id="contato">
-    <div class="container">
-        <h2 class="section-title reveal">Fale Conosco</h2>
-        <p class="section-subtitle reveal">Preencha o formulário ou fale direto com a gente para começar seu projeto hoje mesmo!</p>
-        <div class="contact-content">
-            <form class="contact-form reveal" id="contact-form" onsubmit="generateWhatsAppLink(event)">
-                <input type="text" id="name" placeholder="Seu Nome" required>
-                <input type="email" id="email" placeholder="Seu E-mail" required>
-                <input type="tel" id="phone" placeholder="Seu WhatsApp (com DDD)" required>
-                
-                <select id="plan" required>
-                    <option value="" disabled selected>Selecione um plano</option>
-                    <option value="Plano Essencial">Plano Essencial</option>
-                    <option value="Plano Completo">Plano Completo</option>
-                </select>
+    <section class="contact-cta" id="contato">
+        <div class="container">
+            <h2 class="section-title reveal">Fale Conosco</h2>
+            <p class="section-subtitle reveal">Preencha o formulário ou fale direto com a gente para começar seu projeto hoje mesmo!</p>
+            <div class="contact-content">
+                <form class="contact-form reveal" id="contact-form" onsubmit="generateWhatsAppLink(event)">
+                    <input type="text" id="name" placeholder="Seu Nome" required>
+                    <input type="email" id="email" placeholder="Seu E-mail" required>
+                    <input type="tel" id="phone" placeholder="Seu WhatsApp (com DDD)" required>
+                    
+                    <select id="plan" required>
+                        <option value="" disabled selected>Selecione um plano</option>
+                        <option value="Plano Essencial">Plano Essencial</option>
+                        <option value="Plano Completo">Plano Completo</option>
+                    </select>
 
-                <textarea id="message" placeholder="Fale um pouco sobre o seu negócio" rows="5" required></textarea>
-                <button type="submit">
-                    <i class="fas fa-paper-plane"></i>
-                    Enviar Orçamento
-                </button>
-            </form>
-            <a href="#" class="whatsapp-btn reveal" id="whatsapp-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i> 
-                Falar Direto no WhatsApp
-            </a>
+                    <textarea id="message" placeholder="Fale um pouco sobre o seu negócio" rows="5" required></textarea>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Orçamento
+                    </button>
+                </form>
+                <a href="#" class="whatsapp-btn reveal" id="whatsapp-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> 
+                    Falar Direto no WhatsApp
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-function generateWhatsAppLink(event) {
-    event.preventDefault();
-    
-    const name = encodeURIComponent(document.getElementById('name').value.trim());
-    const email = encodeURIComponent(document.getElementById('email').value.trim());
-    const phone = encodeURIComponent(document.getElementById('phone').value.trim());
-    const plan = encodeURIComponent(document.getElementById('plan').value);
-    const message = encodeURIComponent(document.getElementById('message').value.trim());
-    
-    const whatsappMessage = 
-        `Olá, vim do site da ClickSpark e quero mais informações.%0A%0A` +
-        `Nome: ${name}%0A` +
-        `E-mail: ${email}%0A` +
-        `WhatsApp: ${phone}%0A` +
-        `Plano Escolhido: ${plan}%0A%0A` +
-        `Mensagem:%0A${message}`;
-    
-    const whatsappNumber = '5519983824281'; // Substitua pelo seu número
-    
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-    
-    const whatsappLinkElement = document.getElementById('whatsapp-link');
-    if (whatsappLinkElement) {
-        whatsappLinkElement.href = whatsappLink;
-    }
-    
-    window.open(whatsappLink, '_blank');
-}
-</script>
-
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-section reveal">
-                <a href="#" class="logo" style="font-size: 2em;">ClickSpark</a>
-                <p style="margin-top: 20px;">Transformando MEIs em negócios digitais de sucesso. Sites profissionais, preços justos, resultados reais.</p>
-                <div class="social-icons">
-                    <a href="https://wa.me/5519984277112?text=Olá! Tenho interesse em criar um site para meu MEI. Pode me ajudar?" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section reveal">
+                    <a href="#" class="logo" style="font-size: 2em;">ClickSpark</a>
+                    <p style="margin-top: 20px;">Transformando MEIs em negócios digitais de sucesso. Sites profissionais, preços justos, resultados reais.</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/5519984277112?text=Olá! Tenho interesse em criar um site para meu MEI. Pode me ajudar?" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section reveal">
+                    <h3>Serviços</h3>
+                    <p><a href="#pacotes">Nossos Planos</a></p>
+                    <p><a href="#pacotes">Criação de Sites</a></p>
+                </div>
+                <div class="footer-section reveal">
+                    <h3>Recursos</h3>
+                    <p><a href="#vantagens">Por que Escolher?</a></p>
+                    <p><a href="#processo">Como Funciona</a></p>
+                    <p><a href="#faq">Perguntas Frequentes</a></p>
+                </div>
+                <div class="footer-section reveal">
+                    <h3>Contato</h3>
+                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+5519984277112">(19) 98427-7112</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5519984277112?text=Olá! Quero saber mais sobre seus serviços!">Fale pelo WhatsApp</a></p>
                 </div>
             </div>
-            <div class="footer-section reveal">
-                <h3>Serviços</h3>
-                <p><a href="#pacotes">Nossos Planos</a></p>
-                <p><a href="#pacotes">Criação de Sites</a></p>
-            </div>
-            <div class="footer-section reveal">
-                <h3>Recursos</h3>
-                <p><a href="#vantagens">Por que Escolher?</a></p>
-                <p><a href="#processo">Como Funciona</a></p>
-                <p><a href="#faq">Perguntas Frequentes</a></p>
-            </div>
-            <div class="footer-section reveal">
-                <h3>Contato</h3>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+5519984277112">(19) 98427-7112</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5519984277112?text=Olá! Quero saber mais sobre seus serviços!">Fale pelo WhatsApp</a></p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ClickSpark. Todos os direitos reservados. | Desenvolvido com ❤️ para MEIs</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ClickSpark. Todos os direitos reservados. | Desenvolvido com ❤️ para MEIs</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scroll-top">
@@ -2759,6 +2782,36 @@ function generateWhatsAppLink(event) {
             }
         `;
         document.head.appendChild(style);
+        
+        // WhatsApp Link Generation
+        function generateWhatsAppLink(event) {
+            event.preventDefault();
+            
+            const name = encodeURIComponent(document.getElementById('name').value.trim());
+            const email = encodeURIComponent(document.getElementById('email').value.trim());
+            const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+            const plan = encodeURIComponent(document.getElementById('plan').value);
+            const message = encodeURIComponent(document.getElementById('message').value.trim());
+            
+            const whatsappMessage = 
+                `Olá, vim do site da ClickSpark e quero mais informações.%0A%0A` +
+                `Nome: ${name}%0A` +
+                `E-mail: ${email}%0A` +
+                `WhatsApp: ${phone}%0A` +
+                `Plano Escolhido: ${plan}%0A%0A` +
+                `Mensagem:%0A${message}`;
+            
+            const whatsappNumber = '5519983824281'; // Substitua pelo seu número
+            
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            const whatsappLinkElement = document.getElementById('whatsapp-link');
+            if (whatsappLinkElement) {
+                whatsappLinkElement.href = whatsappLink;
+            }
+            
+            window.open(whatsappLink, '_blank');
+        }
     </script>
 </body>
 </html>
