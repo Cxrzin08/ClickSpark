@@ -1778,6 +1778,7 @@
                 <li><a href="#vantagens">Vantagens</a></li>
                 <li><a href="#processo">Processo</a></li>
                 <li><a href="#pacotes">Pacotes</a></li>
+                <li><a href="#portfolio">Projetos</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contato" class="cta-btn" style="padding: 12px 24px;">Orçamento</a></li>
             </ul>
@@ -1930,6 +1931,193 @@
                 </div>
                 
     </section>
+
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <h2 class="section-title reveal">Nossos Projetos</h2>
+        <p class="section-subtitle reveal">Veja exemplos reais de sites que desenvolvemos para ajudar negócios como o seu a crescerem online.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item reveal">
+                <div class="portfolio-mockup">
+                    <div class="browser-bar">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                        <span style="margin-left: 20px; color: #999; font-size: 0.9em;">bellapizzabr.vercel.app</span>
+                    </div>
+                    <div class="mockup-content">
+                        <img src="bellapizza.png" alt="Bella Pizza Website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                </div>
+                <h3>Bella Pizza</h3>
+                <p>Site desenvolvido para a Bella Pizza, uma pizzaria artesanal em São Paulo. Inclui design moderno, responsivo, filtro de menu interativo e integração com WhatsApp para pedidos rápidos. Transformamos a presença online da Bella Pizza, aumentando os contatos e pedidos.</p>
+                <div class="portfolio-buttons">
+                    <a href="https://bellapizzabr.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                        <i class="fas fa-eye"></i>
+                        Ver Site
+                    </a>
+                    <a href="#contato" class="cta-btn">
+                        <i class="fas fa-rocket"></i>
+                        Quero um Igual!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.portfolio {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 100%);
+    position: relative;
+    padding: 80px 0;
+}
+
+.portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(243, 156, 18, 0.1) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.portfolio .container {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--yellow);
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.portfolio-item:hover::before {
+    opacity: 0.1;
+}
+
+.portfolio-mockup {
+    background: var(--white);
+    padding: 15px; /* Reduzido para minimizar bordas */
+    border-radius: 15px;
+    box-shadow: var(--shadow-heavy);
+    transform: rotateY(-10deg) rotateX(5deg); /* Transformação mais suave */
+    animation: mockupFloat 6s ease-in-out infinite;
+    margin-bottom: 30px;
+    max-width: 600px; /* Limita a largura máxima */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-mockup .mockup-content {
+    aspect-ratio: 1107 / 737; /* Proporção exata da imagem */
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+    background: linear-gradient(135deg, var(--dark-blue), var(--accent-blue)); /* Fundo para caso a imagem não carregue */
+}
+
+.portfolio-mockup .mockup-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 15px 15px;
+}
+
+.portfolio-item h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+
+.portfolio-item p {
+    color: var(--light-grey);
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.portfolio-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-mockup {
+        max-width: 400px;
+        transform: none; /* Remove rotação 3D em telas menores */
+        padding: 10px;
+    }
+
+    .portfolio-mockup .mockup-content {
+        aspect-ratio: 1107 / 737;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-mockup {
+        max-width: 300px;
+        padding: 8px;
+    }
+
+    .portfolio-mockup .mockup-content {
+        aspect-ratio: 1107 / 737;
+    }
+
+    .portfolio-item {
+        padding: 20px;
+    }
+}
+</style>
 
     <section class="testimonials">
         <div class="container">
