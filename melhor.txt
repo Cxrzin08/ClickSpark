@@ -2335,7 +2335,7 @@ na tela acima esta meio feio o texto pois esta muito proximo da div abaixo, anal
                     <a href="#" class="logo" style="font-size: 2em;">ClickSpark</a>
                     <p style="margin-top: 20px;">Transformando MEIs em negócios digitais de sucesso. Sites profissionais, preços justos, resultados reais.</p>
                     <div class="social-icons">
-                        <a href="https://wa.me/5519984277112?text=Olá! Tenho interesse em criar um site para meu MEI. Pode me ajudar?" target="_blank">
+                        <a href="https://wa.me/5519982315970?text=Olá! Tenho interesse em criar um site para meu MEI. Pode me ajudar?" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -2353,8 +2353,8 @@ na tela acima esta meio feio o texto pois esta muito proximo da div abaixo, anal
                 </div>
                 <div class="footer-section reveal">
                     <h3>Contato</h3>
-                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+5519984277112">(19) 98427-7112</a></p>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5519984277112?text=Olá! Quero saber mais sobre seus serviços!">Fale pelo WhatsApp</a></p>
+                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+5519982315970">(19) 98427-7112</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5519982315970?text=Olá! Quero saber mais sobre seus serviços!">Fale pelo WhatsApp</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
